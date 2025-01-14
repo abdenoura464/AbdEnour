@@ -23,8 +23,8 @@
             background-color: var(--bg-darker);
             color: var(--text-light);
             margin: 0;
-            padding: 20px;
-            overflow: hidden;
+            padding: 10px;
+            overflow-x: hidden;
             position: relative;
             min-height: 100vh;
         }
@@ -82,12 +82,13 @@
         }
 
         .container {
-            max-width: 600px;
-            margin: 20px auto;
+            width: 90%;
+            max-width: 100%;
+            margin: 10px auto;
             background: rgba(139, 92, 246, 0.05);
-            border-radius: 25px;
-            box-shadow: 0 0 40px rgba(139, 92, 246, 0.15);
-            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
+            padding: 20px;
             backdrop-filter: blur(12px);
             border: 1px solid rgba(139, 92, 246, 0.1);
             transform: translateY(0);
@@ -96,31 +97,9 @@
             overflow: hidden;
         }
 
-        .container::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 60%);
-            animation: glowPulse 5s infinite;
-        }
-
-        @keyframes glowPulse {
-            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
-            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
-            100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
-        }
-
-        .container:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 0 60px rgba(139, 92, 246, 0.3);
-        }
-
         .profile-image {
-            width: 160px;
-            height: 160px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             display: block;
             margin: 0 auto;
@@ -129,43 +108,27 @@
             padding: 3px;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             transform: translateY(-6px);
-            box-shadow: 0 0 40px rgba(139, 92, 246, 0.3);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
             animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(-6px); }
-            50% { transform: translateY(6px); }
-        }
-
-        .profile-image:hover {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 0 70px rgba(236, 72, 153, 0.5);
         }
 
         h2 {
             color: var(--text-light);
             text-align: center;
-            margin: 30px 0;
-            font-size: 2.2em;
+            margin: 20px 0;
+            font-size: 1.8em;
             font-weight: 600;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             background: linear-gradient(45deg, var(--primary-light), var(--accent-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: titleGlow 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes titleGlow {
-            from { text-shadow: 0 0 20px rgba(139, 92, 246, 0.5); }
-            to { text-shadow: 0 0 30px rgba(236, 72, 153, 0.8), 0 0 40px rgba(139, 92, 246, 0.6); }
         }
 
         .info {
-            margin: 25px 0;
-            padding: 20px;
+            margin: 15px 0;
+            padding: 15px;
             border: 1px solid rgba(139, 92, 246, 0.2);
-            border-radius: 15px;
+            border-radius: 12px;
             background: rgba(139, 92, 246, 0.03);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
@@ -173,90 +136,84 @@
             backdrop-filter: blur(5px);
         }
 
-        .info::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(236, 72, 153, 0.2),
-                transparent
-            );
-            transition: 0.7s;
-        }
-
         .info:hover {
             background: rgba(139, 92, 246, 0.1);
-            transform: translateX(10px) scale(1.02);
-            box-shadow: 0 0 30px rgba(139, 92, 246, 0.2);
-            border-color: rgba(236, 72, 153, 0.4);
-        }
-
-        .info:hover::before {
-            left: 100%;
-            transition: 0.7s;
+            transform: translateX(5px);
         }
 
         a {
             color: var(--primary-light);
             text-decoration: none;
             transition: all 0.4s ease;
-            display: inline-block;
-            padding: 5px 10px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }
-
-        a:hover {
-            color: var(--accent-light);
-            transform: translateX(8px);
-            text-shadow: 0 0 15px rgba(236, 72, 153, 0.8);
+            display: flex;
+            align-items: center;
+            font-size: 0.9em;
+            padding: 5px;
+            word-break: break-all;
         }
 
         .social-icons {
-            margin-right: 15px;
-            transition: all 0.4s ease;
-            font-size: 1.2em;
-        }
-
-        a:hover .social-icons {
-            transform: scale(1.3) rotate(15deg);
-            color: var(--accent);
+            margin-right: 10px;
+            min-width: 20px;
+            font-size: 1.1em;
         }
 
         strong {
+            display: block;
+            margin-bottom: 5px;
             font-weight: 600;
             color: var(--accent-light);
-            text-shadow: 0 0 10px rgba(236, 72, 153, 0.3);
         }
 
         .copyright {
             text-align: center;
-            margin-top: 35px;
-            padding: 20px;
+            margin-top: 25px;
+            padding: 15px;
             color: var(--primary-light);
-            font-size: 0.9em;
+            font-size: 0.8em;
             font-weight: 500;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             border-top: 1px solid rgba(139, 92, 246, 0.15);
-            text-shadow: 0 0 8px rgba(139, 92, 246, 0.4);
-            animation: fadeInOut 3s ease-in-out infinite;
         }
 
-        @keyframes fadeInOut {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 1; }
+        @media (max-width: 480px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+                margin: 5px auto;
+            }
+
+            h2 {
+                font-size: 1.5em;
+                margin: 15px 0;
+            }
+
+            .profile-image {
+                width: 100px;
+                height: 100px;
+            }
+
+            .info {
+                margin: 10px 0;
+                padding: 12px;
+            }
+
+            a {
+                font-size: 0.85em;
+            }
+
+            .copyright {
+                font-size: 0.75em;
+                padding: 10px;
+                margin-top: 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="particles">
         <script>
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 30; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 particle.style.left = Math.random() * 100 + 'vw';
